@@ -39,12 +39,12 @@ func merge_sort(lista []int, listb []int) []int {
 			listb = listb[1:]
 		}
 	}
-	if len(lista) != 0 {
+	for len(lista) != 0 {
 		result = append(result, lista[0])
 		lista = lista[1:]
 
 	}
-	if len(listb) != 0 {
+	for len(listb) != 0 {
 		result = append(result, listb[0])
 		listb = listb[1:]
 	}
