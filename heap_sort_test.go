@@ -17,14 +17,13 @@ func HeapSort(list []int, length int) {
 	buildMaxHeap(list, length)
 	for i := length - 1; i >= 0; i-- {
 		list[0], list[i] = list[i], list[0]
-		list = list[:1]
 		length = length - 1
-		ajustHeap(list, 0, length)
+		buildMaxHeap(list, length)
 	}
 }
 
 func buildMaxHeap(list []int, length int) {
-	for i := length / 2; i >= 0; i-- {
+	for i := length/2 - 1; i >= 0; i-- {
 		ajustHeap(list, i, length)
 	}
 }
@@ -33,6 +32,7 @@ func ajustHeap(list []int, pos, length int) {
 	left := 2*pos + 1
 	right := 2*pos + 2
 	largest := pos
+	fmt.Println(left, right, length)
 	if left < length && list[left] < list[largest] {
 		largest = left
 	}
@@ -41,6 +41,6 @@ func ajustHeap(list []int, pos, length int) {
 	}
 	if largest != pos {
 		list[pos], list[largest] = list[largest], list[pos]
-		ajustHeap(list, largest, length)
 	}
+	fmt.Println(list)
 }
