@@ -33,10 +33,10 @@ func ajustHeap(list []int, pos, length int) {
 	right := 2*pos + 2
 	largest := pos
 	fmt.Println(left, right, length)
-	if left < length && list[left] < list[largest] {
+	if left < length && list[left] > list[largest] {
 		largest = left
 	}
-	if right < length && list[right] < list[largest] {
+	if right < length && list[right] > list[largest] {
 		largest = right
 	}
 	if largest != pos {
