@@ -11,6 +11,7 @@ func TestHeapSort(t *testing.T) {
 	for i := 0; i < len(list); i++ {
 		fmt.Println(list[i])
 	}
+
 }
 
 func HeapSort(list []int, length int) {
