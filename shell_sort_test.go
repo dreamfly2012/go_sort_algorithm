@@ -15,12 +15,16 @@ func TestShellSort(t *testing.T) {
 
 func ShellSort(list []int) {
 	length := len(list)
+	if length < 2 {
+		return
+	}
 	for step := length / 2; step > 0; step = step / 2 {
-		for i := 0; i < step; i++ {
-			for j := i + step; j < length && list[j] < list[j-step]; j += step {
+		for i := step; i < length; i++ {
+			j := i
+			for j >= step && list[j] < list[j-step] {
 				list[j], list[j-step] = list[j-step], list[j]
+				j -= step
 			}
 		}
-		fmt.Println(list)
 	}
 }
